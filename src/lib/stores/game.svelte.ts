@@ -14,9 +14,40 @@ class GameStore {
 	connected = $state(false);
 	error = $state<string | null>(null);
 	lastUpdateAt = $state(Date.now());
+	testMode = $state(false);
 
 	private unsub: (() => void) | null = null;
 	private lastPhase: GamePhase | null = null;
+
+	seedTest(data: {
+		game: Game;
+		players: Player[];
+		answers: TriviaAnswer[];
+		votes: WmlVote[];
+		photos: Photo[];
+	}): void {
+		this.testMode = true;
+		this.game = data.game;
+		this.players = data.players;
+		this.answers = data.answers;
+		this.votes = data.votes;
+		this.photos = data.photos;
+		this.presence = new Set(data.players.map((p) => p.id));
+		this.connected = true;
+		this.error = null;
+		this.lastUpdateAt = Date.now();
+	}
+
+	clearTest(): void {
+		this.testMode = false;
+		this.game = null;
+		this.players = [];
+		this.answers = [];
+		this.votes = [];
+		this.photos = [];
+		this.presence = new Set();
+		this.connected = false;
+	}
 
 	get phase(): GamePhase {
 		return this.game?.phase ?? 'lobby';

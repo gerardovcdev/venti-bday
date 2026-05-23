@@ -44,7 +44,7 @@
 	const SCROLL_SPEED_PX_PER_SEC = 28; // velocidad bajita tipo wrapped
 
 	onMount(async () => {
-		if (hasBackend()) {
+		if (!gameStore.testMode && hasBackend()) {
 			await gameStore.start();
 		}
 		loaded = true;
@@ -371,7 +371,16 @@
 
 	const photoUrl = $derived((pid: string) => {
 		const p = gameStore.photos.find((x) => x.player_id === pid);
-		if (!p || !hasBackend()) return null;
+		if (!p) return null;
+		// modo test: storage_path lleva un blob: o data: URL directo
+		if (gameStore.testMode) {
+			const sp = p.storage_path;
+			if (sp.startsWith('blob:') || sp.startsWith('data:') || sp.startsWith('http')) {
+				return sp;
+			}
+			return null;
+		}
+		if (!hasBackend()) return null;
 		try {
 			return getPhotoPublicUrl(p.storage_path);
 		} catch {

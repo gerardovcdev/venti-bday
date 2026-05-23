@@ -86,67 +86,72 @@
 <div class="relative -mx-5 -mt-6 min-h-dvh">
 	<StickerCollage layout={LANDING_LAYOUT} />
 
-	<!-- contenido encima, columna vertical centrada -->
-	<div class="relative z-10 flex min-h-dvh flex-col items-center justify-between px-5 pt-10 pb-10 text-center">
+	<!-- contenido encima: arriba korean, centro título+Jugar, abajo links -->
+	<div class="relative z-10 flex min-h-dvh flex-col items-center px-5 pt-8 pb-6 text-center">
 		<!-- top: korean subtitle -->
 		<div class="font-script text-pink-rose/90 text-xl drop-shadow-sm">
 			벤띠 생일 축하해 ♡
 		</div>
 
-		<!-- middle: title -->
-		<div class="relative animate-fade-up px-2">
-			<!-- backdrop pill so title pops over busy collage -->
-			<div
-				class="relative rounded-[2rem] bg-white/55 backdrop-blur-md px-6 py-5 shadow-glow border border-white/70"
-			>
-				<h1
-					class="font-display text-6xl sm:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-pink-rose via-pink-deep to-pink-rose animate-gradient leading-[0.9]"
+		<!-- middle: título + botón Jugar centrados verticalmente -->
+		<div class="flex flex-1 flex-col items-center justify-center gap-6 w-full">
+			<div class="relative animate-fade-up px-2 w-full max-w-xs">
+				<!-- backdrop pill so title pops over busy collage -->
+				<div
+					class="relative rounded-[2rem] bg-white/55 backdrop-blur-md px-6 py-5 shadow-glow border border-white/70"
 				>
-					Venti
-				</h1>
-				<h2
-					class="font-display text-5xl sm:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-pink-bubblegum via-pink-rose to-pink-deep animate-gradient leading-none mt-1"
-				>
-					b-day!
-				</h2>
-				<div class="mt-2 flex items-center justify-center gap-1.5">
-					<Sparkle size={14} color="#E0668E" />
-					<span class="font-script text-pink-deep text-base">un juego cute para ti</span>
-					<Sparkle size={14} color="#E0668E" />
+					<h1
+						class="font-display text-6xl sm:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-pink-rose via-pink-deep to-pink-rose animate-gradient leading-[0.9]"
+					>
+						Venti
+					</h1>
+					<h2
+						class="font-display text-5xl sm:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-pink-bubblegum via-pink-rose to-pink-deep animate-gradient leading-none mt-1"
+					>
+						b-day!
+					</h2>
+					<div class="mt-2 flex items-center justify-center gap-1.5">
+						<Sparkle size={14} color="#E0668E" />
+						<span class="font-script text-pink-deep text-base">un juego cute para ti</span>
+						<Sparkle size={14} color="#E0668E" />
+					</div>
 				</div>
+			</div>
+
+			<!-- Botón principal pegado debajo del cuadro -->
+			<div class="flex flex-col items-center gap-2">
+				{#if existing}
+					<BowButton onclick={continueGame} size="lg">
+						<HeartIcon size={20} color="#FFFFFF" />
+						continuar
+						<HeartIcon size={20} color="#FFFFFF" />
+					</BowButton>
+					<p class="font-script text-pink-deep/80 text-sm drop-shadow-sm">
+						estás como <b class="text-pink-deep">{existing.name}</b>
+					</p>
+					<button
+						type="button"
+						onclick={changeName}
+						class="font-script text-pink-rose/90 text-sm underline no-tap"
+					>
+						cambiar nombre
+					</button>
+				{:else}
+					<BowButton onclick={startGame} size="lg">
+						<HeartIcon size={20} color="#FFFFFF" />
+						Jugar
+						<HeartIcon size={20} color="#FFFFFF" />
+					</BowButton>
+				{/if}
 			</div>
 		</div>
 
-		<!-- bottom: actions -->
-		<div class="flex flex-col items-center gap-3 w-full">
-			{#if existing}
-				<BowButton onclick={continueGame} size="lg">
-					<HeartIcon size={20} color="#FFFFFF" />
-					continuar
-					<HeartIcon size={20} color="#FFFFFF" />
-				</BowButton>
-				<p class="font-script text-pink-deep/80 text-sm drop-shadow-sm">
-					estás como <b class="text-pink-deep">{existing.name}</b>
-				</p>
-				<button
-					type="button"
-					onclick={changeName}
-					class="font-script text-pink-rose/90 text-sm underline no-tap"
-				>
-					cambiar nombre
-				</button>
-			{:else}
-				<BowButton onclick={startGame} size="lg">
-					<HeartIcon size={20} color="#FFFFFF" />
-					Jugar
-					<HeartIcon size={20} color="#FFFFFF" />
-				</BowButton>
-			{/if}
-
+		<!-- bottom: links pequeños -->
+		<div class="flex flex-col items-center gap-2 w-full">
 			<button
 				type="button"
 				onclick={shareLink}
-				class="inline-flex items-center gap-1.5 font-script text-pink-rose text-sm no-tap hover:text-pink-deep transition mt-1 drop-shadow-sm"
+				class="inline-flex items-center gap-1.5 font-script text-pink-rose text-sm no-tap hover:text-pink-deep transition drop-shadow-sm"
 			>
 				<Sparkle size={12} color="#E0668E" />
 				compartir el link
@@ -156,16 +161,26 @@
 				<p class="font-script text-pink-deep text-xs animate-fade-up">{shareMsg}</p>
 			{/if}
 
+			<button
+				type="button"
+				onclick={() => goto('/test-wrapped')}
+				class="inline-flex items-center gap-1.5 font-script text-pink-rose/90 text-xs no-tap hover:text-pink-deep transition drop-shadow-sm"
+			>
+				<Sparkle size={10} color="#E0668E" />
+				prueba wrapped (modo test)
+				<Sparkle size={10} color="#E0668E" />
+			</button>
+
 			{#if !confirmingReset}
 				<button
 					type="button"
 					onclick={() => (confirmingReset = true)}
-					class="font-script text-pink-rose/80 text-xs underline no-tap mt-1 drop-shadow-sm"
+					class="font-script text-pink-rose/80 text-xs underline no-tap drop-shadow-sm"
 				>
 					nuevo juego
 				</button>
 			{:else}
-				<div class="flex flex-col items-center gap-2 mt-1 animate-fade-up">
+				<div class="flex flex-col items-center gap-2 animate-fade-up">
 					<p class="font-script text-pink-deep text-sm max-w-xs text-balance drop-shadow-sm">
 						¿empezar desde cero? esto borra jugadores, respuestas y fotos previas
 					</p>
@@ -190,7 +205,7 @@
 				<p class="font-script text-pink-deep text-xs animate-fade-up">{resetMsg}</p>
 			{/if}
 
-			<div class="font-script text-pink-rose/80 text-base mt-1 drop-shadow-sm">
+			<div class="font-script text-pink-rose/80 text-sm drop-shadow-sm">
 				hecho con amor para ti ♡
 			</div>
 		</div>

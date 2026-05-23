@@ -49,22 +49,31 @@ export type StickerPlacement = {
 	float?: 'a' | 'b'; // animation variant
 };
 
+/*
+ * Layout pensado para que NO bloquee el botón "Jugar" (centro vertical,
+ * centro horizontal) ni los links del bottom (compartir / nuevo juego).
+ * Stickers viven en esquinas + bordes laterales y se mantienen visibles
+ * en pantallas chiquitas (~360x640) sin recortarse.
+ */
 export const LANDING_LAYOUT: StickerPlacement[] = [
-	// upper band
-	{ id: 'snoopy', top: '2%', left: '50%', size: '110px', rotate: -6, z: 1, delay: 0, float: 'a' },
-	{ id: 'kitty', top: '6%', left: '4%', size: '78px', rotate: 8, z: 2, delay: 0.4, float: 'b' },
-	{ id: 'pastel', top: '8%', right: '6%', size: '64px', rotate: -10, z: 2, delay: 0.8, float: 'a' },
-	// mid band — around title
-	{ id: 'mymelody', top: '40%', left: '-2%', size: '92px', rotate: -12, z: 1, delay: 0.2, float: 'b' },
-	{ id: 'cinnamoroll', top: '42%', right: '-2%', size: '88px', rotate: 14, z: 1, delay: 0.6, float: 'a' },
-	{ id: 'gato-meme', top: '32%', right: '24%', size: '54px', rotate: 12, z: 2, delay: 1.0, float: 'b' },
-	// lower band — fandoms
-	{ id: 'ateez', bottom: '22%', left: '8%', size: '120px', rotate: -5, z: 1, delay: 0.3, float: 'a' },
-	{ id: 'pompompurin', bottom: '32%', right: '6%', size: '70px', rotate: 18, z: 2, delay: 0.9, float: 'b' },
-	{ id: 'rauw', bottom: '4%', left: '4%', size: '88px', rotate: -8, z: 1, delay: 0.5, float: 'b' },
-	{ id: 'san', bottom: '8%', right: '20%', size: '60px', rotate: 9, z: 2, delay: 0.7, float: 'a' },
-	{ id: 'percy', bottom: '2%', right: '4%', size: '78px', rotate: -10, z: 1, delay: 1.1, float: 'a' },
-	{ id: 'san2', bottom: '14%', left: '36%', size: '52px', rotate: -14, z: 2, delay: 1.3, float: 'b' }
+	// banda superior — esquinas grandes
+	{ id: 'snoopy', top: '1%', left: '1%', size: '128px', rotate: -8, z: 1, delay: 0, float: 'a' },
+	{ id: 'kitty', top: '1%', right: '1%', size: '108px', rotate: 8, z: 1, delay: 0.4, float: 'b' },
+	// pequeños acentos sobre el título
+	{ id: 'gato-meme', top: '20%', left: '6%', size: '56px', rotate: 14, z: 2, delay: 1.0, float: 'b' },
+	{ id: 'pastel', top: '18%', right: '8%', size: '58px', rotate: -10, z: 2, delay: 0.8, float: 'a' },
+	// laterales del título (parcial detrás del backdrop blur)
+	{ id: 'mymelody', top: '38%', left: '-2%', size: '102px', rotate: -10, z: 1, delay: 0.2, float: 'b' },
+	{ id: 'cinnamoroll', top: '40%', right: '-2%', size: '96px', rotate: 12, z: 1, delay: 0.6, float: 'a' },
+	// laterales del botón "Jugar" — solo bordes, dejan libre el centro
+	{ id: 'san', top: '58%', left: '-4%', size: '72px', rotate: -8, z: 1, delay: 0.7, float: 'a' },
+	{ id: 'pompompurin', top: '60%', right: '-3%', size: '82px', rotate: 14, z: 1, delay: 0.9, float: 'b' },
+	// más abajo (entre botón y links), siempre en bordes
+	{ id: 'rauw', top: '74%', right: '-3%', size: '90px', rotate: -8, z: 0, delay: 0.5, float: 'b' },
+	{ id: 'san2', top: '76%', left: '-2%', size: '60px', rotate: -14, z: 0, delay: 1.3, float: 'b' },
+	// esquinas inferiores — grandes, pegadas al borde
+	{ id: 'ateez', bottom: '1%', left: '-2%', size: '128px', rotate: -6, z: 0, delay: 0.3, float: 'a' },
+	{ id: 'percy', bottom: '1%', right: '-2%', size: '102px', rotate: -10, z: 0, delay: 1.1, float: 'a' }
 ];
 
 /**
