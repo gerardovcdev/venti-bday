@@ -28,8 +28,9 @@
 	const playerId = $derived(page.params.playerId ?? '');
 
 	let loaded = $state(false);
-	let exportBusy = $state<'png' | 'gif' | null>(null);
+	let exportBusy = $state<'png' | 'video' | null>(null);
 	let exportMsg = $state<string | null>(null);
+	let videoSupported = $state(false);
 	let wrappedEl: HTMLDivElement | null = $state(null);
 	let confetti = $state(false);
 	let autoScroll = $state(false); // se activa después de las stories
@@ -47,6 +48,12 @@
 			await gameStore.start();
 		}
 		loaded = true;
+		try {
+			const mod = await import('$lib/wrapped/canvas-share');
+			videoSupported = mod.isVideoExportSupported();
+		} catch {
+			videoSupported = false;
+		}
 
 		// observer para animar secciones al entrar al viewport (scroll detalle)
 		observer = new IntersectionObserver(
@@ -372,104 +379,115 @@
 		}
 	});
 
-	async function exportPng() {
-		if (!wrappedEl || exportBusy) return;
-		exportBusy = 'png';
-		exportMsg = 'preparando imagen...';
-		const { preloadImagesAsDataURL } = await import('$lib/wrapped/preload-images');
-		const restore = await preloadImagesAsDataURL(wrappedEl);
-		try {
-			const { toBlob } = await import('html-to-image');
-			const blob = await toBlob(wrappedEl, {
-				pixelRatio: 2.5,
-				backgroundColor: '#fff5f9',
-				cacheBust: true,
-				skipFonts: true,
-				filter: (node) => {
-					if (!(node instanceof Element)) return true;
-					return !node.hasAttribute('data-export-hide');
-				}
-			});
-			if (!blob) throw new Error('No se pudo generar la imagen');
-			const file = new File([blob], 'venti-wrapped.png', { type: 'image/png' });
-			if (navigator.share && navigator.canShare?.({ files: [file] })) {
-				await navigator.share({ files: [file], title: 'Venti b-day wrapped ♡' });
-			} else {
-				const url = URL.createObjectURL(blob);
-				const a = document.createElement('a');
-				a.href = url;
-				a.download = 'venti-wrapped.png';
-				a.click();
-				URL.revokeObjectURL(url);
+	function buildShareData() {
+		if (!me) throw new Error('no hay jugador');
+		const myColor = colorFor(me.color);
+		const team = gameStore.players.map((p) => {
+			const c = colorFor(p.color);
+			return {
+				id: p.id,
+				name: p.name,
+				initials: p.initials,
+				photoUrl: photoUrl(p.id),
+				color: { bg: c.bg, fg: c.fg, ring: c.ring }
+			};
+		});
+		const myCorrect = correctByPlayer.get(me.id) ?? 0;
+		const myTotal = totalByPlayer.get(me.id) ?? 0;
+		const myVotes = myVotesReceived.length;
+		// elegir el WML más relevante para el usuario: donde lo votaron a él si existe,
+		// si no, el más popular del juego
+		let highlight: { prompt: string; winnerName: string } | undefined;
+		const mineAsWinner = wmlSummary.find((w) => w.winnerId === me.id);
+		if (mineAsWinner) {
+			highlight = { prompt: mineAsWinner.prompt, winnerName: me.name };
+		} else if (wmlSummary.length > 0) {
+			const top = wmlSummary[0];
+			const wp = gameStore.playerById(top.winnerId);
+			if (wp) highlight = { prompt: top.prompt, winnerName: wp.name };
+		}
+		return {
+			me: {
+				id: me.id,
+				name: me.name,
+				initials: me.initials,
+				photoUrl: photoUrl(me.id),
+				color: { bg: myColor.bg, fg: myColor.fg, ring: myColor.ring }
+			},
+			team,
+			stats: {
+				correct: myCorrect,
+				total: myTotal,
+				votesReceived: myVotes
+			},
+			highlight,
+			hardestQuestion: hardestQuestion?.q
+				? { question: hardestQuestion.q.question, answer: hardestQuestion.q.answer }
+				: undefined
+		};
+	}
+
+	async function shareOrDownload(blob: Blob, filename: string, mime: string, title: string) {
+		const file = new File([blob], filename, { type: mime });
+		if (navigator.share && navigator.canShare?.({ files: [file] })) {
+			try {
+				await navigator.share({ files: [file], title });
+				return;
+			} catch (err) {
+				// si el usuario canceló, no descargar
+				const msg = err instanceof Error ? err.message : '';
+				if (/abort|cancel/i.test(msg)) return;
 			}
-			exportMsg = '¡imagen guardada! ♡';
+		}
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement('a');
+		a.href = url;
+		a.download = filename;
+		a.click();
+		URL.revokeObjectURL(url);
+	}
+
+	async function exportPng() {
+		if (exportBusy) return;
+		exportBusy = 'png';
+		exportMsg = 'creando tu imagen ♡';
+		try {
+			const { buildShareImage } = await import('$lib/wrapped/canvas-share');
+			const data = buildShareData();
+			const { blob, mime } = await buildShareImage(data);
+			await shareOrDownload(blob, 'venti-wrapped.png', mime, 'Venti b-day wrapped ♡');
+			exportMsg = '¡imagen lista! ♡';
 		} catch (e) {
 			console.error(e);
 			exportMsg = 'no se pudo guardar la imagen, probá de nuevo';
 		} finally {
-			restore();
 			exportBusy = null;
 		}
 	}
 
-	async function exportGif() {
-		if (!wrappedEl || exportBusy) return;
-		exportBusy = 'gif';
-		exportMsg = 'preparando GIF, esto puede tardar un momento...';
-		const { preloadImagesAsDataURL } = await import('$lib/wrapped/preload-images');
-		const restore = await preloadImagesAsDataURL(wrappedEl);
+	async function exportVideo() {
+		if (exportBusy) return;
+		exportBusy = 'video';
+		exportMsg = 'grabando tu video... esto tarda ~25s ♡';
 		try {
-			const html2img = await import('html-to-image');
-			const slides = document.querySelectorAll<HTMLElement>('[data-wrapped-slide]');
-			if (slides.length === 0) throw new Error('No hay slides');
-
-			// @ts-expect-error - gif.js types not strict
-			const GIF = (await import('gif.js.optimized')).default;
-			const gif = new GIF({
-				workers: 2,
-				quality: 10,
-				width: 540,
-				height: 720,
-				workerScript: '/gif.worker.js'
+			const { buildShareVideo } = await import('$lib/wrapped/canvas-share');
+			const data = buildShareData();
+			const { blob, mime, extension } = await buildShareVideo(data, (ratio) => {
+				const pct = Math.min(99, Math.round(ratio * 100));
+				exportMsg = `grabando... ${pct}% ♡`;
 			});
-
-			for (const slide of slides) {
-				const canvas = await html2img.toCanvas(slide, {
-					pixelRatio: 1,
-					canvasWidth: 540,
-					canvasHeight: 720,
-					backgroundColor: '#fff5f9',
-					skipFonts: true,
-					filter: (node) => {
-						if (!(node instanceof Element)) return true;
-						return !node.hasAttribute('data-export-hide');
-					}
-				});
-				gif.addFrame(canvas, { delay: 1500 });
-			}
-
-			const blob: Blob = await new Promise((resolve) => {
-				gif.on('finished', (b: Blob) => resolve(b));
-				gif.render();
-			});
-
-			const file = new File([blob], 'venti-wrapped.gif', { type: 'image/gif' });
-			if (navigator.share && navigator.canShare?.({ files: [file] })) {
-				await navigator.share({ files: [file], title: 'Venti b-day wrapped ♡' });
-			} else {
-				const url = URL.createObjectURL(blob);
-				const a = document.createElement('a');
-				a.href = url;
-				a.download = 'venti-wrapped.gif';
-				a.click();
-				URL.revokeObjectURL(url);
-			}
-			exportMsg = '¡GIF guardado! ♡';
+			const filename = `venti-wrapped.${extension}`;
+			await shareOrDownload(blob, filename, mime, 'Venti b-day wrapped ♡');
+			exportMsg = '¡video listo! ♡';
 		} catch (e) {
 			console.error(e);
-			exportMsg = 'no se pudo crear el GIF, intenta de nuevo';
+			const msg = e instanceof Error ? e.message : '';
+			if (msg.includes('no soporta')) {
+				exportMsg = 'tu navegador no soporta video, prueba la imagen ♡';
+			} else {
+				exportMsg = 'no se pudo crear el video, probá la imagen';
+			}
 		} finally {
-			restore();
 			exportBusy = null;
 		}
 	}
@@ -857,16 +875,18 @@
 					<HeartIcon size={14} color="#FFFFFF" />
 					{exportBusy === 'png' ? 'guardando...' : 'guardar imagen'}
 				</BowButton>
-				<BowButton
-					onclick={exportGif}
-					disabled={exportBusy !== null}
-					size="sm"
-					showBow={false}
-					variant="secondary"
-				>
-					<Sparkle size={14} color="#E0668E" />
-					{exportBusy === 'gif' ? 'creando...' : 'guardar GIF'}
-				</BowButton>
+				{#if videoSupported}
+					<BowButton
+						onclick={exportVideo}
+						disabled={exportBusy !== null}
+						size="sm"
+						showBow={false}
+						variant="secondary"
+					>
+						<Sparkle size={14} color="#E0668E" />
+						{exportBusy === 'video' ? 'grabando...' : 'guardar video'}
+					</BowButton>
+				{/if}
 				{#if reachedEnd}
 					<BowButton
 						onclick={toggleAutoScroll}

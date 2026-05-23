@@ -67,12 +67,9 @@
 		errorMsg = null;
 		status = 'starting';
 		try {
-			stream = await startCameraStream();
-			if (videoEl) {
-				videoEl.srcObject = stream;
-				await videoEl.play();
-			}
+			const s = await startCameraStream();
 			status = 'preview';
+			stream = s;
 		} catch (e) {
 			console.error(e);
 			errorMsg =
@@ -80,6 +77,21 @@
 			status = 'error';
 		}
 	}
+
+	// Conecta el stream al <video> cuando ambos están listos.
+	// El <video> solo se monta cuando status === 'preview', así que no
+	// podemos hacerlo dentro de openCamera() (el elemento aún no existe).
+	$effect(() => {
+		if (stream && videoEl && status === 'preview') {
+			if (videoEl.srcObject !== stream) {
+				videoEl.srcObject = stream;
+				const playPromise = videoEl.play();
+				if (playPromise) {
+					playPromise.catch((err) => console.warn('video.play() falló', err));
+				}
+			}
+		}
+	});
 
 	async function takePhoto() {
 		if (!videoEl) return;
