@@ -1,0 +1,17 @@
+[
+	{ "id": "smile", "prompt": "foto sonriendo con la cumpleañera ♡", "emoji": "😊" },
+	{ "id": "sad", "prompt": "foto fingiendo estar tristes con la cumpleañera 🥺", "emoji": "🥺" },
+	{ "id": "sea", "prompt": "foto mirando al mar con la cumpleañera 🌊", "emoji": "🌊" },
+	{ "id": "peace", "prompt": "foto haciendo el peace ✌️ con la cumpleañera", "emoji": "✌️" },
+	{ "id": "heart-hands", "prompt": "foto haciendo un corazón con las manos junto a la cumpleañera ♡", "emoji": "🫶" },
+	{ "id": "surprise", "prompt": "foto con cara de sorpresa con la cumpleañera 😱", "emoji": "😱" },
+	{ "id": "tongue", "prompt": "foto sacando la lengua con la cumpleañera 😛", "emoji": "😛" },
+	{ "id": "look-up", "prompt": "foto mirando al cielo con la cumpleañera ☁️", "emoji": "☁️" },
+	{ "id": "duck-face", "prompt": "foto haciendo duck face con la cumpleañera 🦆", "emoji": "🦆" },
+	{ "id": "kiss", "prompt": "foto dándole un besito en la mejilla a la cumpleañera 😘", "emoji": "😘" },
+	{ "id": "hug", "prompt": "foto abrazando fuerte a la cumpleañera 🤗", "emoji": "🤗" },
+	{ "id": "point", "prompt": "foto señalando a la cumpleañera como diciendo 'ella es la reina' 👑", "emoji": "👑" },
+	{ "id": "wow", "prompt": "foto haciendo cara de wow viendo a la cumpleañera ✨", "emoji": "✨" },
+	{ "id": "back-to-back", "prompt": "foto espalda con espalda con la cumpleañera 💁", "emoji": "💁" },
+	{ "id": "wink", "prompt": "foto guiñando un ojo con la cumpleañera 😉", "emoji": "😉" }
+]

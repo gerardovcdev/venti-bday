@@ -1,0 +1,17 @@
+[
+	{ "id": "wml-three-bfs", "prompt": "¿Quién es más probable que tenga tres novios al mismo tiempo?" },
+	{ "id": "wml-beach-sleep", "prompt": "¿Quién es más probable que se quede dormido en la playa con bronceador en la mano?" },
+	{ "id": "wml-cry-movie", "prompt": "¿Quién es más probable que llore con una película Disney?" },
+	{ "id": "wml-ex-text", "prompt": "¿Quién es más probable que le escriba a un ex a las 3 AM?" },
+	{ "id": "wml-famous", "prompt": "¿Quién es más probable que termine siendo famoso?" },
+	{ "id": "wml-arrest", "prompt": "¿Quién es más probable que termine en la comisaría por algo gracioso?" },
+	{ "id": "wml-tattoo", "prompt": "¿Quién es más probable que se haga un tatuaje del cumple de la otra?" },
+	{ "id": "wml-perreo", "prompt": "¿Quién es más probable que sea la primera en perrear en la pista?" },
+	{ "id": "wml-bathroom-cry", "prompt": "¿Quién es más probable que se haya llorado en el baño de un bar?" },
+	{ "id": "wml-marry-rich", "prompt": "¿Quién es más probable que se case con un millonario?" },
+	{ "id": "wml-stay-single", "prompt": "¿Quién es más probable que se quede soltera por elección?" },
+	{ "id": "wml-fall-stairs", "prompt": "¿Quién es más probable que se caiga en las escaleras en público?" },
+	{ "id": "wml-late", "prompt": "¿Quién es más probable que llegue tarde a su propia boda?" },
+	{ "id": "wml-kdrama-binge", "prompt": "¿Quién es más probable que vea un k-drama entero de un tirón?" },
+	{ "id": "wml-call-mom", "prompt": "¿Quién es más probable que llame a mamá borracha?" }
+]
