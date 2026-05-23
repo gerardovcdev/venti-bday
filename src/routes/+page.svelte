@@ -8,10 +8,15 @@
 	import { LANDING_LAYOUT } from '$lib/design/stickers-manifest';
 	import { loadLocalPlayer, clearLocalPlayer } from '$lib/stores/player';
 	import { clearCheckpoint } from '$lib/persistence/idb';
+	import { resetGame } from '$lib/supabase/mutations';
+	import { hasBackend } from '$lib/supabase/client';
 	import { play } from '$lib/audio/sfx.svelte';
 
 	let existing = $state(loadLocalPlayer());
 	let shareMsg = $state<string | null>(null);
+	let confirmingReset = $state(false);
+	let resetting = $state(false);
+	let resetMsg = $state<string | null>(null);
 
 	onMount(() => {
 		existing = loadLocalPlayer();
@@ -50,6 +55,30 @@
 		await clearCheckpoint();
 		existing = null;
 		goto('/join');
+	}
+
+	async function doNewGame() {
+		if (resetting) return;
+		resetting = true;
+		try {
+			if (hasBackend()) {
+				await resetGame();
+			}
+			clearLocalPlayer();
+			await clearCheckpoint();
+			existing = null;
+			play('chime');
+			confirmingReset = false;
+			resetMsg = 'juego reiniciado ♡';
+			setTimeout(() => (resetMsg = null), 1800);
+			goto('/join');
+		} catch (e) {
+			console.error(e);
+			resetMsg = 'no se pudo reiniciar';
+			setTimeout(() => (resetMsg = null), 2200);
+		} finally {
+			resetting = false;
+		}
 	}
 </script>
 
@@ -125,6 +154,40 @@
 			</button>
 			{#if shareMsg}
 				<p class="font-script text-pink-deep text-xs animate-fade-up">{shareMsg}</p>
+			{/if}
+
+			{#if !confirmingReset}
+				<button
+					type="button"
+					onclick={() => (confirmingReset = true)}
+					class="font-script text-pink-rose/80 text-xs underline no-tap mt-1 drop-shadow-sm"
+				>
+					nuevo juego
+				</button>
+			{:else}
+				<div class="flex flex-col items-center gap-2 mt-1 animate-fade-up">
+					<p class="font-script text-pink-deep text-sm max-w-xs text-balance drop-shadow-sm">
+						¿empezar desde cero? esto borra jugadores, respuestas y fotos previas
+					</p>
+					<div class="flex gap-2">
+						<BowButton onclick={doNewGame} disabled={resetting} size="sm" showBow={false}>
+							<HeartIcon size={14} color="#FFFFFF" />
+							{resetting ? 'reiniciando...' : 'sí, empezar'}
+						</BowButton>
+						<BowButton
+							onclick={() => (confirmingReset = false)}
+							disabled={resetting}
+							size="sm"
+							showBow={false}
+							variant="secondary"
+						>
+							cancelar
+						</BowButton>
+					</div>
+				</div>
+			{/if}
+			{#if resetMsg}
+				<p class="font-script text-pink-deep text-xs animate-fade-up">{resetMsg}</p>
 			{/if}
 
 			<div class="font-script text-pink-rose/80 text-base mt-1 drop-shadow-sm">

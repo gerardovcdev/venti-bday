@@ -108,7 +108,7 @@
 	}
 
 	$effect(() => {
-		if (gameStore.phase === 'wrapped' && player) {
+		if (gameStore.phase === 'wrapped' && player && !gameIsOrphaned) {
 			void goto(`/wrapped/${player.id}`);
 		}
 	});
