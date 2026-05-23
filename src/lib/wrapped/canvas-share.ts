@@ -568,10 +568,10 @@ export async function buildShareImage(
 		heroW,
 		heroH,
 		heroPhoto ?? null,
-		data.me.name,
+		'',
 		-3,
 		meColor,
-		{ showCaption: true, tapeColor: '#A8CFF0' }
+		{ showCaption: false, tapeColor: '#A8CFF0' }
 	);
 
 	// Stickers flotando alrededor de la foto hero
@@ -606,9 +606,9 @@ export async function buildShareImage(
 		['#4F8FD0', '#7FB8E8', '#4F8FD0']
 	);
 
-	// --- TEAM strip mini polaroids ---
+	// --- TEAM strip mini polaroids (más recuerdos) ---
 	const teamY = 1700;
-	drawText(ctx, 'el equipo de la fiesta', CARD_W / 2, teamY - 30, {
+	drawText(ctx, 'más fotitos del día ♡', CARD_W / 2, teamY - 30, {
 		font: '38px "Nanum Pen Script", cursive',
 		color: '#4F8FD0',
 		align: 'center'
@@ -623,7 +623,7 @@ export async function buildShareImage(
 		const p = data.team[i];
 		const cx = startX + i * (pw + gap);
 		const rot = (i % 2 === 0 ? -1 : 1) * (4 + (i % 3));
-		drawPolaroid(ctx, cx, teamY + 80, pw, ph, photos.get(p.id) ?? null, p.name, rot, p.color);
+		drawPolaroid(ctx, cx, teamY + 80, pw, ph, photos.get(p.id) ?? null, '', rot, p.color, { showCaption: false });
 	}
 
 	// Stickers en esquinas inferiores (footer)
@@ -808,17 +808,17 @@ function buildSlides(data: ShareData): Slide[] {
 			];
 			drawFloatingStickers(ctx, r.stickers, floats, t, t, a);
 
-			// hint script arriba
+			// hint script arriba — enfocado en el recuerdo, no en el usuario
 			ctx.save();
 			ctx.globalAlpha = a;
-			drawText(ctx, 'esta eres tú ♡', w / 2, h * 0.13, {
+			drawText(ctx, 'un recuerdo del día ♡', w / 2, h * 0.13, {
 				font: '38px "Nanum Pen Script", cursive',
 				color: '#7FB8E8',
 				align: 'center'
 			});
 			ctx.restore();
 
-			// FOTO HERO POLAROID grande (zoom-in cinem tico)
+			// FOTO POLAROID grande (zoom-in cinemático). Sin caption con nombre.
 			const zoom = 0.92 + 0.1 * easeInOutCubic(Math.min(t * 1.2, 1));
 			const tilt = -3 + Math.sin(t * 1.2) * 1.5;
 			const pw = 430 * zoom;
@@ -834,14 +834,14 @@ function buildSlides(data: ShareData): Slide[] {
 				pw,
 				ph,
 				r.photos.get(data.me.id) ?? null,
-				data.me.name,
+				'',
 				tilt,
 				data.me.color,
-				{ showCaption: true, tapeColor: '#A8CFF0' }
+				{ showCaption: false, tapeColor: '#A8CFF0' }
 			);
 			ctx.restore();
 
-			// sparkles sutiles alrededor de la foto (sin corazones)
+			// sparkles sutiles alrededor de la foto
 			ctx.save();
 			ctx.globalAlpha = a;
 			const sBeat = 1 + Math.sin(t * Math.PI * 5) * 0.2;
@@ -849,15 +849,15 @@ function buildSlides(data: ShareData): Slide[] {
 			drawSparkle(ctx, cx + pw / 2 + 40, cy - ph / 3, 24 * sBeat, '#4F8FD0');
 			ctx.restore();
 
-			// Nombre debajo, aparece despu s
+			// Frase debajo enfocada en el día con Venti
 			ctx.save();
 			ctx.globalAlpha = a * easeOutCubic(Math.max(0, Math.min((t - 0.3) * 2, 1)));
 			drawGradientText(
 				ctx,
-				'protagonista del día',
+				'tu foto con la cumple ♡',
 				w / 2,
 				h * 0.92,
-				'700 36px "Caveat", cursive',
+				'700 40px "Caveat", cursive',
 				['#4F8FD0', '#7FB8E8', '#4F8FD0']
 			);
 			ctx.restore();
@@ -1011,10 +1011,10 @@ function buildSlides(data: ShareData): Slide[] {
 						pw,
 						ph,
 						winnerPhoto ?? null,
-						data.highlight!.winnerName,
+						'',
 						5,
 						winnerPlayer?.color ?? data.me.color,
-						{ showCaption: true, tapeColor: '#4F8FD0' }
+						{ showCaption: false, tapeColor: '#4F8FD0' }
 					);
 					ctx.restore();
 				}
@@ -1039,7 +1039,7 @@ function buildSlides(data: ShareData): Slide[] {
 
 			ctx.save();
 			ctx.globalAlpha = a;
-			drawText(ctx, 'el equipo de la fiesta ♡', w / 2, h * 0.1, {
+			drawText(ctx, 'todos los recuerdos del día ♡', w / 2, h * 0.1, {
 				font: '38px "Nanum Pen Script", cursive',
 				color: '#4F8FD0',
 				align: 'center'
@@ -1078,10 +1078,10 @@ function buildSlides(data: ShareData): Slide[] {
 					pw,
 					ph,
 					r.photos.get(p.id) ?? null,
-					p.name,
+					'',
 					rot,
 					p.color,
-					{ showCaption: true, tapeColor: tapeColors[i % tapeColors.length] }
+					{ showCaption: false, tapeColor: tapeColors[i % tapeColors.length] }
 				);
 				ctx.restore();
 			}
