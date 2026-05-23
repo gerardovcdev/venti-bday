@@ -35,7 +35,7 @@
 	<div class="flex flex-col items-center gap-2 animate-fade-up">
 		<p class="font-script text-pink-rose/80 text-sm text-center">{label}</p>
 		<BowButton onclick={() => onskip?.()} size="sm" variant="secondary" showBow={false}>
-			<HeartIcon size={14} color="#E0668E" />
+			<HeartIcon size={14} color="#4F8FD0" />
 			seguir sin las ausentes
 		</BowButton>
 	</div>

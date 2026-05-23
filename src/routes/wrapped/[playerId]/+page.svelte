@@ -602,7 +602,7 @@
 				<section data-wrapped-slide class="wslide wslide-left">
 					<GlassCard padding="md" glow>
 						<div class="flex flex-col items-center gap-2 text-center">
-							<Sparkle size={20} color="#E0668E" />
+							<Sparkle size={20} color="#4F8FD0" />
 							<div class="font-script text-pink-rose text-lg">la cerebrito ♡</div>
 							<PlayerAvatar
 								initials={wp.initials}
@@ -672,7 +672,7 @@
 			<section data-wrapped-slide class="wslide wslide-right">
 				<GlassCard padding="md">
 					<div class="font-script text-pink-rose text-center text-lg mb-3">
-						los momentos picantes ♡
+						los momentos malditos
 					</div>
 					<ul class="flex flex-col gap-3">
 						{#each wmlSummary as w (w.prompt)}
@@ -844,12 +844,12 @@
 			class="fixed top-3 left-3 z-30 h-9 w-9 rounded-full glass shadow-card flex items-center justify-center no-tap active:scale-95 transition"
 		>
 			{#if autoScroll}
-				<svg width="14" height="14" viewBox="0 0 24 24" fill="#E0668E">
+				<svg width="14" height="14" viewBox="0 0 24 24" fill="#4F8FD0">
 					<rect x="6" y="5" width="4" height="14" rx="1" />
 					<rect x="14" y="5" width="4" height="14" rx="1" />
 				</svg>
 			{:else}
-				<svg width="14" height="14" viewBox="0 0 24 24" fill="#E0668E">
+				<svg width="14" height="14" viewBox="0 0 24 24" fill="#4F8FD0">
 					<path d="M8 5 L19 12 L8 19 Z" />
 				</svg>
 			{/if}
@@ -892,7 +892,7 @@
 						showBow={false}
 						variant="secondary"
 					>
-						<Sparkle size={14} color="#E0668E" />
+						<Sparkle size={14} color="#4F8FD0" />
 						{exportBusy === 'video' ? 'grabando...' : 'guardar video'}
 					</BowButton>
 				{/if}
@@ -903,7 +903,7 @@
 						showBow={false}
 						variant="ghost"
 					>
-						<HeartIcon size={12} color="#E0668E" />
+						<HeartIcon size={12} color="#4F8FD0" />
 						ver otra vez
 					</BowButton>
 				{/if}
@@ -925,7 +925,7 @@
 		right: 10px;
 		font-family: 'Nanum Pen Script', 'Caveat', 'Brush Script MT', cursive;
 		font-style: italic;
-		color: #E0668E;
+		color: #4F8FD0;
 		font-size: 10px;
 		opacity: 0.6;
 		pointer-events: none;

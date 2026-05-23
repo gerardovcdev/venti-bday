@@ -40,7 +40,7 @@
 				: 'left-0.5'}"
 		>
 			{#if ready}
-				<BowIcon size={14} color="#FF8FB8" accent="#E0668E" />
+				<BowIcon size={14} color="#7FB8E8" accent="#4F8FD0" />
 			{/if}
 		</span>
 	</span>

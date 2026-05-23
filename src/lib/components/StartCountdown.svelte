@@ -38,9 +38,9 @@
 	class="fixed inset-0 z-30 flex flex-col items-center justify-center gap-4 bg-pink-cream/85 backdrop-blur-md"
 >
 	<div class="flex items-center gap-3 opacity-70">
-		<Sparkle size={18} color="#FF8FB8" />
+		<Sparkle size={18} color="#7FB8E8" />
 		<span class="font-script text-pink-rose text-lg">empezamos...</span>
-		<Sparkle size={18} color="#FF8FB8" />
+		<Sparkle size={18} color="#7FB8E8" />
 	</div>
 	{#key count}
 		<div class="relative animate-fade-up">
@@ -52,13 +52,13 @@
 				</div>
 			{:else}
 				<div class="flex items-center gap-2 animate-heartbeat">
-					<HeartIcon size={48} color="#E0668E" />
+					<HeartIcon size={48} color="#4F8FD0" />
 					<span
 						class="font-display text-6xl text-transparent bg-clip-text bg-gradient-to-r from-pink-rose to-pink-deep"
 					>
 						¡vamos!
 					</span>
-					<HeartIcon size={48} color="#E0668E" />
+					<HeartIcon size={48} color="#4F8FD0" />
 				</div>
 			{/if}
 		</div>

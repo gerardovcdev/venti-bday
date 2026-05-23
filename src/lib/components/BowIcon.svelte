@@ -1,8 +1,8 @@
 <script lang="ts">
 	let {
 		size = 32,
-		color = '#FF8FB8',
-		accent = '#E0668E',
+		color = '#7FB8E8',
+		accent = '#4F8FD0',
 		class: className = ''
 	}: { size?: number; color?: string; accent?: string; class?: string } = $props();
 </script>

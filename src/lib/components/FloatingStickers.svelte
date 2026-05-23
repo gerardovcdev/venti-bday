@@ -26,7 +26,7 @@
 	<!-- gradient blob -->
 	<div
 		class="absolute -top-32 -right-24 h-80 w-80 rounded-full blur-3xl opacity-60"
-		style="background: radial-gradient(circle, #FFB6D5 0%, transparent 70%);"
+		style="background: radial-gradient(circle, #A8CFF0 0%, transparent 70%);"
 	></div>
 	<div
 		class="absolute -bottom-40 -left-20 h-96 w-96 rounded-full blur-3xl opacity-50"
@@ -39,7 +39,7 @@
 			class="absolute animate-sparkle"
 			style="top: {rand(i, 4, 92)}%; left: {rand(i + 100, 2, 96)}%; animation-delay: {i * 0.3}s;"
 		>
-			<Sparkle size={rand(i + 200, 10, 22)} color={i % 2 === 0 ? '#FF8FB8' : '#E8D5FF'} />
+			<Sparkle size={rand(i + 200, 10, 22)} color={i % 2 === 0 ? '#7FB8E8' : '#E8D5FF'} />
 		</div>
 	{/each}
 
@@ -49,13 +49,13 @@
 			class="absolute animate-float"
 			style="top: {rand(i + 50, 10, 80)}%; left: {rand(i + 60, 5, 90)}%; animation-delay: {i * 1.1}s;"
 		>
-			<HeartIcon size={rand(i + 70, 14, 26)} color={i % 2 === 0 ? '#FFB6D5' : '#FF8FB8'} />
+			<HeartIcon size={rand(i + 70, 14, 26)} color={i % 2 === 0 ? '#A8CFF0' : '#7FB8E8'} />
 		</div>
 	{/each}
 
 	<!-- bow corner -->
 	<div class="absolute top-6 right-4 animate-float-alt opacity-70">
-		<BowIcon size={42} color="#FFB6D5" accent="#E0668E" />
+		<BowIcon size={42} color="#A8CFF0" accent="#4F8FD0" />
 	</div>
 
 	<!-- kitty doodles corners -->

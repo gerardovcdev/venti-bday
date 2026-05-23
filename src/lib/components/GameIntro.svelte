@@ -85,9 +85,9 @@
 			{phaseLabel}
 		</div>
 		<h1 class="font-display text-4xl text-pink-deep flex items-center justify-center gap-2 mt-1">
-			<Sparkle size={18} color="#E0668E" />
+			<Sparkle size={18} color="#4F8FD0" />
 			{title}
-			<Sparkle size={18} color="#E0668E" />
+			<Sparkle size={18} color="#4F8FD0" />
 		</h1>
 	</header>
 
@@ -96,7 +96,7 @@
 	</div>
 
 	<GlassCard padding="md" glow>
-		<p class="font-display text-pink-berry text-base leading-snug text-balance text-center">
+		<p class="font-display text-pink-berry text-sm sm:text-base leading-snug text-balance text-center">
 			{subtitle}
 		</p>
 	</GlassCard>
@@ -104,9 +104,9 @@
 	<div class="relative z-10 flex flex-col items-center gap-3">
 		{#if me?.is_ready}
 			<div class="flex items-center gap-2 font-script text-pink-rose text-base animate-heartbeat">
-				<HeartIcon size={16} color="#E0668E" />
+				<HeartIcon size={16} color="#4F8FD0" />
 				lista... esperando a las demás
-				<HeartIcon size={16} color="#E0668E" />
+				<HeartIcon size={16} color="#4F8FD0" />
 			</div>
 			<div class="font-script text-pink-deep/70 text-xs">
 				{readyCount}/{players.length} listas
@@ -128,7 +128,7 @@
 					initials={p.initials}
 					colorBg={c.bg}
 					colorFg={c.fg}
-					colorRing={p.is_ready ? '#FF8FB8' : '#FFE0EC'}
+					colorRing={p.is_ready ? '#7FB8E8' : '#DDEFFB'}
 					size="xs"
 					online={gameStore.presence.has(p.id)}
 					ringActive={p.is_ready}

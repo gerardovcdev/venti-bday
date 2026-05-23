@@ -111,9 +111,9 @@
 						b-day!
 					</h2>
 					<div class="mt-2 flex items-center justify-center gap-1.5">
-						<Sparkle size={14} color="#E0668E" />
-						<span class="font-script text-pink-deep text-base">un juego cute para ti</span>
-						<Sparkle size={14} color="#E0668E" />
+						<Sparkle size={14} color="#4F8FD0" />
+						<span class="font-script text-pink-deep text-base">juego de cumpleaños</span>
+						<Sparkle size={14} color="#4F8FD0" />
 					</div>
 				</div>
 			</div>
@@ -138,9 +138,7 @@
 					</button>
 				{:else}
 					<BowButton onclick={startGame} size="lg">
-						<HeartIcon size={20} color="#FFFFFF" />
 						Jugar
-						<HeartIcon size={20} color="#FFFFFF" />
 					</BowButton>
 				{/if}
 			</div>
@@ -153,23 +151,13 @@
 				onclick={shareLink}
 				class="inline-flex items-center gap-1.5 font-script text-pink-rose text-sm no-tap hover:text-pink-deep transition drop-shadow-sm"
 			>
-				<Sparkle size={12} color="#E0668E" />
+				<Sparkle size={12} color="#4F8FD0" />
 				compartir el link
-				<Sparkle size={12} color="#E0668E" />
+				<Sparkle size={12} color="#4F8FD0" />
 			</button>
 			{#if shareMsg}
 				<p class="font-script text-pink-deep text-xs animate-fade-up">{shareMsg}</p>
 			{/if}
-
-			<button
-				type="button"
-				onclick={() => goto('/test-wrapped')}
-				class="inline-flex items-center gap-1.5 font-script text-pink-rose/90 text-xs no-tap hover:text-pink-deep transition drop-shadow-sm"
-			>
-				<Sparkle size={10} color="#E0668E" />
-				prueba wrapped (modo test)
-				<Sparkle size={10} color="#E0668E" />
-			</button>
 
 			{#if !confirmingReset}
 				<button
@@ -206,7 +194,7 @@
 			{/if}
 
 			<div class="font-script text-pink-rose/80 text-sm drop-shadow-sm">
-				hecho con amor para ti ♡
+				de Awless para veni ♡
 			</div>
 		</div>
 	</div>

@@ -169,9 +169,9 @@
 	<header class="text-center relative z-10">
 		<div class="font-script text-pink-rose/80 text-sm">찰칵 ♡ tu reto</div>
 		<h1 class="font-display text-2xl text-pink-deep inline-flex items-center gap-2">
-			<Sparkle size={16} color="#E0668E" />
+			<Sparkle size={16} color="#4F8FD0" />
 			foto del momento
-			<Sparkle size={16} color="#E0668E" />
+			<Sparkle size={16} color="#4F8FD0" />
 		</h1>
 	</header>
 
@@ -259,7 +259,7 @@
 				¡esta me encanta!
 			</BowButton>
 			<BowButton onclick={retakePhoto} size="sm" variant="secondary" showBow={false}>
-				<HeartIcon size={14} color="#E0668E" />
+				<HeartIcon size={14} color="#4F8FD0" />
 				tomar otra
 			</BowButton>
 		</div>
@@ -299,7 +299,7 @@
 							initials={p.initials}
 							colorBg={c.bg}
 							colorFg={c.fg}
-							colorRing={has ? '#FF8FB8' : '#FFE0EC'}
+							colorRing={has ? '#7FB8E8' : '#DDEFFB'}
 							size="xs"
 							online={gameStore.presence.has(p.id)}
 							ringActive={has}
@@ -331,7 +331,7 @@
 						variant="secondary"
 						showBow={false}
 					>
-						<Sparkle size={12} color="#E0668E" />
+						<Sparkle size={12} color="#4F8FD0" />
 						usar galería
 					</BowButton>
 				</div>

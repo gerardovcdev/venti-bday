@@ -210,7 +210,7 @@
 			}
 		}
 
-		buildMsg = 'simulando los votos picantes...';
+		buildMsg = 'simulando los votos desgraciados...';
 		await new Promise((r) => setTimeout(r, 200));
 
 		const votes: WmlVote[] = [];
@@ -279,9 +279,9 @@
 	<header class="text-center relative z-10">
 		<div class="font-script text-pink-rose/80 text-sm">prueba ♡ modo wrapped</div>
 		<h1 class="font-display text-2xl text-pink-deep inline-flex items-center gap-2">
-			<Sparkle size={16} color="#E0668E" />
+			<Sparkle size={16} color="#4F8FD0" />
 			test wrapped
-			<Sparkle size={16} color="#E0668E" />
+			<Sparkle size={16} color="#4F8FD0" />
 		</h1>
 		{#if status !== 'intro' && status !== 'building'}
 			<p class="font-script text-pink-rose/80 text-xs mt-1">
@@ -415,7 +415,7 @@
 				{currentIdx + 1 >= subjects.length ? 'crear wrapped ♡' : 'siguiente'}
 			</BowButton>
 			<BowButton onclick={retake} size="sm" variant="secondary" showBow={false}>
-				<HeartIcon size={14} color="#E0668E" />
+				<HeartIcon size={14} color="#4F8FD0" />
 				otra
 			</BowButton>
 		</div>

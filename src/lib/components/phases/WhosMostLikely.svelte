@@ -119,7 +119,7 @@
 
 {#if !prompt}
 	<div class="flex flex-1 items-center justify-center">
-		<HeartLoader label="cargando preguntas picantes..." />
+		<HeartLoader label="cargando preguntas malditas..." />
 	</div>
 {:else}
 	<div class="relative flex flex-1 flex-col gap-5 animate-fade-up">
@@ -129,16 +129,16 @@
 				ronda {gameStore.currentRound + 1} de {order.length}
 			</div>
 			<div class="inline-flex items-center gap-2 mt-1">
-				<Sparkle size={16} color="#FF8FB8" />
+				<Sparkle size={16} color="#7FB8E8" />
 				<span class="font-display text-pink-deep text-sm uppercase tracking-widest">
 					¿quién es más probable?
 				</span>
-				<Sparkle size={16} color="#FF8FB8" />
+				<Sparkle size={16} color="#7FB8E8" />
 			</div>
 		</div>
 
 		<GlassCard padding="lg" glow>
-			<h2 class="font-display text-xl text-pink-deep text-center text-balance leading-snug">
+			<h2 class="font-display text-base sm:text-lg text-pink-deep text-center text-balance leading-snug px-1">
 				{prompt.prompt}
 			</h2>
 		</GlassCard>
@@ -184,7 +184,7 @@
 					{/if}
 					{#if isWinner}
 						<span class="absolute -top-2 -right-2 animate-heartbeat">
-							<HeartIcon size={20} color="#E0668E" />
+							<HeartIcon size={20} color="#4F8FD0" />
 						</span>
 					{/if}
 				</button>

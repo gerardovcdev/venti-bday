@@ -227,7 +227,7 @@
 		data-no-tap
 		class="absolute top-3 right-3 z-40 h-9 w-9 rounded-full glass shadow-card flex items-center justify-center no-tap active:scale-95"
 	>
-		<svg width="14" height="14" viewBox="0 0 24 24" stroke="#E0668E" stroke-width="2.4" stroke-linecap="round" fill="none">
+		<svg width="14" height="14" viewBox="0 0 24 24" stroke="#4F8FD0" stroke-width="2.4" stroke-linecap="round" fill="none">
 			<path d="M6 6 L18 18 M18 6 L6 18" />
 		</svg>
 	</button>
@@ -253,9 +253,9 @@
 						</h1>
 						<div class="font-display text-4xl text-pink-deep mt-2">· wrapped ·</div>
 						<div class="mt-6 inline-flex items-center gap-2 font-script text-pink-deep text-lg">
-							<Sparkle size={16} color="#E0668E" />
+							<Sparkle size={16} color="#4F8FD0" />
 							lo que vivimos juntas
-							<Sparkle size={16} color="#E0668E" />
+							<Sparkle size={16} color="#4F8FD0" />
 						</div>
 					</div>
 				{:else if current.kind === 'hero-personal'}
@@ -324,7 +324,7 @@
 						{#snippet children()}
 							<div class="flex flex-1 flex-col items-center justify-end text-center px-8 pb-24 gap-3 h-full">
 								<div class="font-script text-pink-cream text-xl drop-shadow">la cerebrito ♡</div>
-								<h1 class="font-display text-5xl text-pink-cream leading-none drop-shadow-[0_4px_12px_rgba(107,44,74,0.6)]">
+								<h1 class="font-display text-5xl text-pink-cream leading-none drop-shadow-[0_4px_12px_rgba(31,58,92,0.6)]">
 									{p.name}
 								</h1>
 								<div class="font-display text-2xl text-pink-cream/95 drop-shadow">
@@ -372,7 +372,7 @@
 								colorRing="#FFF9F0"
 								size="lg"
 							/>
-							<h1 class="font-display text-4xl text-pink-cream leading-none drop-shadow-[0_4px_12px_rgba(107,44,74,0.6)]">
+							<h1 class="font-display text-4xl text-pink-cream leading-none drop-shadow-[0_4px_12px_rgba(31,58,92,0.6)]">
 								{p.name}
 							</h1>
 							<div class="font-script text-pink-cream/90 text-base">se distrajo pero la queremos ♡</div>
@@ -435,8 +435,8 @@
 									{current.data.prompt}
 								</p>
 								<div class="flex flex-col items-center gap-2">
-									<HeartIcon size={28} color="#FF8FB8" />
-									<h1 class="font-display text-5xl text-pink-cream leading-none drop-shadow-[0_4px_12px_rgba(107,44,74,0.7)]">
+									<HeartIcon size={28} color="#7FB8E8" />
+									<h1 class="font-display text-5xl text-pink-cream leading-none drop-shadow-[0_4px_12px_rgba(31,58,92,0.7)]">
 										{w.name}
 									</h1>
 								</div>
@@ -504,7 +504,7 @@
 					</div>
 					<div class="relative z-10 flex flex-1 flex-col items-center justify-center text-center px-8 gap-3">
 						<div class="font-display leading-none text-cream">
-							<span class="text-[8rem] drop-shadow-[0_4px_12px_rgba(107,44,74,0.5)]">
+							<span class="text-[8rem] drop-shadow-[0_4px_12px_rgba(31,58,92,0.5)]">
 								{current.data.total}
 							</span>
 						</div>
@@ -586,10 +586,10 @@
 					<StickerExplosion ids={['snoopy', 'kitty', 'mymelody', 'cinnamoroll', 'pompompurin', 'ateez']} seed={0.7} />
 					<div class="relative z-10 flex flex-1 flex-col items-center justify-center text-center px-8 gap-3">
 						<div class="font-script text-pink-cream text-2xl drop-shadow">사랑해</div>
-						<h1 class="font-display text-5xl text-pink-cream leading-none drop-shadow-[0_4px_12px_rgba(107,44,74,0.6)]">
+						<h1 class="font-display text-5xl text-pink-cream leading-none drop-shadow-[0_4px_12px_rgba(31,58,92,0.6)]">
 							feliz cumple
 						</h1>
-						<h2 class="font-display text-6xl text-cream leading-none drop-shadow-[0_4px_12px_rgba(107,44,74,0.7)]">
+						<h2 class="font-display text-6xl text-cream leading-none drop-shadow-[0_4px_12px_rgba(31,58,92,0.7)]">
 							venti ♡
 						</h2>
 						<div class="font-script text-pink-cream/95 text-base mt-3">con todo el cariño</div>

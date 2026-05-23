@@ -8,7 +8,9 @@
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
       "Bash(git restore *)",
-      "Bash(timeout 180 pnpm check)"
+      "Bash(timeout 180 pnpm check)",
+      "Bash(npx svelte-check *)",
+      "Bash(node *)"
     ]
   }
 }

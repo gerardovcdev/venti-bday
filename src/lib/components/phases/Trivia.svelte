@@ -164,16 +164,16 @@
 				pregunta {gameStore.currentRound + 1} de {order.length}
 			</div>
 			<div class="inline-flex items-center gap-2 mt-1">
-				<Sparkle size={16} color="#FF8FB8" />
+				<Sparkle size={16} color="#7FB8E8" />
 				<span class="font-display text-pink-deep text-sm uppercase tracking-widest">
 					{question.about === 'venti' ? 'sobre Venti' : 'cultura'}
 				</span>
-				<Sparkle size={16} color="#FF8FB8" />
+				<Sparkle size={16} color="#7FB8E8" />
 			</div>
 		</div>
 
 		<GlassCard padding="lg" glow>
-			<h2 class="font-display text-2xl text-pink-deep text-center text-balance">
+			<h2 class="font-display text-lg sm:text-xl text-pink-deep text-center text-balance leading-snug px-1">
 				{question.question}
 			</h2>
 		</GlassCard>
@@ -187,11 +187,11 @@
 							type="button"
 							onclick={() => answerMultiple(opt)}
 							disabled={!!myAnswer || submitBusy}
-							class="glass rounded-2xl py-3 px-4 text-left font-display text-lg transition no-tap {picked
+							class="glass rounded-2xl py-2.5 px-4 text-left font-display text-base sm:text-lg leading-snug text-balance transition no-tap {picked
 								? 'bg-pink-rose text-cream shadow-glow ring-2 ring-pink-deep font-bold'
 								: 'text-pink-berry hover:bg-white/70 active:scale-95'}"
 							style={picked
-								? 'text-shadow: 0 1px 2px rgba(107,44,74,0.4);'
+								? 'text-shadow: 0 1px 2px rgba(31,58,92,0.4);'
 								: ''}
 						>
 							{opt}
@@ -250,7 +250,7 @@
 							initials={p.initials}
 							colorBg={c.bg}
 							colorFg={c.fg}
-							colorRing={ans ? (reveal && ans.is_correct ? '#FF8FB8' : ans ? '#E8D5FF' : '#FFE0EC') : '#FFE0EC'}
+							colorRing={ans ? (reveal && ans.is_correct ? '#7FB8E8' : ans ? '#E8D5FF' : '#DDEFFB') : '#DDEFFB'}
 							size="sm"
 							online={gameStore.presence.has(p.id)}
 							ringActive={!!ans && !reveal}

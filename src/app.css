@@ -1,26 +1,28 @@
 @import 'tailwindcss';
 
 @theme {
-	--color-pink-cream: #fff5f9;
-	--color-pink-cloud: #ffe0ec;
-	--color-pink-blush: #ffcfe0;
-	--color-pink-bubblegum: #ffb6d5;
-	--color-pink-rose: #ff8fb8;
-	--color-pink-deep: #e0668e;
-	--color-pink-berry: #6b2c4a;
+	/* Cinnamoroll blue palette — variables nombradas pink-* por compatibilidad
+	   pero el color principal ahora es azul pastel tipo cinnamoroll.            */
+	--color-pink-cream: #f0f8ff;     /* fondo más claro, casi blanco azulado */
+	--color-pink-cloud: #ddeffb;     /* fondo suave */
+	--color-pink-blush: #c5e2f7;     /* surface pastel */
+	--color-pink-bubblegum: #a8cff0; /* azul claro / botones secundarios */
+	--color-pink-rose: #7fb8e8;      /* color principal cinnamoroll */
+	--color-pink-deep: #4f8fd0;      /* acento profundo */
+	--color-pink-berry: #1f3a5c;     /* texto oscuro */
 	--color-lavender: #e8d5ff;
 	--color-mint: #d4f1e0;
 	--color-peach: #ffd9c4;
 	--color-cream: #fff9f0;
-	--color-sparkle: #ffd9e8;
+	--color-sparkle: #d5eaf8;
 
 	--font-display: 'Caveat', 'Cafe24 Oneprettynight', 'Gowun Dodum', cursive;
 	--font-body: 'Gowun Dodum', system-ui, sans-serif;
 	--font-script: 'Nanum Pen Script', cursive;
 
-	--shadow-soft: 0 8px 24px -8px rgba(224, 102, 142, 0.25);
-	--shadow-glow: 0 0 24px 0 rgba(255, 143, 184, 0.35);
-	--shadow-card: 0 4px 16px -4px rgba(224, 102, 142, 0.18);
+	--shadow-soft: 0 8px 24px -8px rgba(79, 143, 208, 0.28);
+	--shadow-glow: 0 0 24px 0 rgba(127, 184, 232, 0.45);
+	--shadow-card: 0 4px 16px -4px rgba(79, 143, 208, 0.22);
 }
 
 @layer base {
@@ -33,7 +35,7 @@
 	body {
 		font-family: var(--font-body);
 		color: var(--color-pink-berry);
-		background: linear-gradient(160deg, #fff5f9 0%, #ffe0ec 50%, #f5e8ff 100%);
+		background: linear-gradient(160deg, #f0f8ff 0%, #ddeffb 50%, #ede5ff 100%);
 		background-attachment: fixed;
 		min-height: 100dvh;
 		-webkit-font-smoothing: antialiased;
@@ -76,7 +78,7 @@
 		background: rgba(255, 255, 255, 0.55);
 		backdrop-filter: blur(12px) saturate(140%);
 		-webkit-backdrop-filter: blur(12px) saturate(140%);
-		border: 1px solid rgba(255, 207, 224, 0.6);
+		border: 1px solid rgba(168, 207, 240, 0.6);
 	}
 	.scrollbar-cute::-webkit-scrollbar {
 		width: 6px;

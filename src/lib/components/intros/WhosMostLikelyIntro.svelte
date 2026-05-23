@@ -12,8 +12,8 @@
 	{playerId}
 	phaseLabel="fase 2 de 3"
 	title="¿quién es más probable que...? 👀"
-	subtitle="te voy a dar situaciones picantes y tú votas por quien sea más probable. puedes votar por ti misma, no hay reglas. al final del juego, te muestro un resumen con drama."
-	acceptLabel="lista pa el drama 💅"
+	subtitle="te voy a dar situaciones arrechas y tú votas por quien sea más probable. puedes votar por ti misma, no hay reglas. al final del juego, te muestro un resumen con drama."
+	acceptLabel="listo pa el desorden 💅"
 	stickers={WML_STICKERS}
 >
 	{#snippet demo()}
@@ -22,7 +22,7 @@
 				<div class="font-display text-pink-deep text-sm mb-3">¿quién es más probable que...?</div>
 				<div class="flex justify-center gap-3">
 					<div class="animate-heartbeat" style="animation-delay: 0s;">
-						<PlayerAvatar initials="Mar" colorBg="#FFB6D5" colorFg="#6B2C4A" colorRing="#FF8FB8" size="md" />
+						<PlayerAvatar initials="Mar" colorBg="#A8CFF0" colorFg="#1F3A5C" colorRing="#7FB8E8" size="md" />
 					</div>
 					<div class="animate-heartbeat" style="animation-delay: 0.3s;">
 						<PlayerAvatar initials="Luz" colorBg="#E8D5FF" colorFg="#5B3A7A" colorRing="#C9A8F0" size="md" />

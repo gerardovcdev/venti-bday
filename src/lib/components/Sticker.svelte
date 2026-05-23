@@ -37,7 +37,7 @@
 
 <style>
 	.sticker-shadow {
-		filter: drop-shadow(0 4px 8px rgba(224, 102, 142, 0.25))
+		filter: drop-shadow(0 4px 8px rgba(79, 143, 208, 0.25))
 			drop-shadow(0 1px 0 rgba(255, 255, 255, 0.8));
 	}
 </style>

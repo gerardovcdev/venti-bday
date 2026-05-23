@@ -29,7 +29,7 @@
 	{playerId}
 	phaseLabel="fase 3 de 3"
 	title="foto del momento 📸"
-	subtitle="vas a tener una pose única para tomarte una foto con la cumpleañera. no hay countdown, tú decides cuándo dispararle. necesitamos acceso a tu cámara para esto ♡"
+	subtitle="vas a tener una pose única para tomarte una foto con la cumpleañera. Te diremos la pose y tendras que hacer tu mejor esfuerzo para imitarla. No te preocupes por salir bien, lo importante es divertirse y tener un recuerdo lindo juntos."
 	acceptLabel="dale, dame la cámara"
 	onaccept={requestCameraPermission}
 	stickers={PHOTO_STICKERS}
@@ -38,7 +38,7 @@
 		<div class="relative w-full max-w-[260px] mx-auto">
 			<div
 				class="glass rounded-3xl p-4 shadow-glow text-center relative overflow-hidden aspect-[3/4]"
-				style="background: linear-gradient(160deg, #FFE0EC 0%, #FFB6D5 100%);"
+				style="background: linear-gradient(160deg, #DDEFFB 0%, #A8CFF0 100%);"
 			>
 				<div class="absolute inset-0 flex items-center justify-center">
 					<div class="text-7xl animate-heartbeat">📸</div>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	let {
 		size = 20,
-		color = '#FFB6D5',
+		color = '#A8CFF0',
 		class: className = ''
 	}: { size?: number; color?: string; class?: string } = $props();
 </script>

@@ -3,7 +3,7 @@
 
 	let {
 		photoUrl,
-		fallbackColor = '#FFB6D5',
+		fallbackColor = '#A8CFF0',
 		overlay = 'dark',
 		children
 	}: {

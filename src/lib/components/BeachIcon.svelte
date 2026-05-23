@@ -108,14 +108,14 @@
 		<path
 			d="M24 6 Q8 16 6 38 Q24 44 42 38 Q40 16 24 6 Z"
 			fill="#FFCBC1"
-			stroke="#E0668E"
+			stroke="#4F8FD0"
 			stroke-width="2"
 		/>
-		<path d="M24 6 L18 38" stroke="#E0668E" stroke-width="1.4" fill="none" />
-		<path d="M24 6 L24 38" stroke="#E0668E" stroke-width="1.4" fill="none" />
-		<path d="M24 6 L30 38" stroke="#E0668E" stroke-width="1.4" fill="none" />
-		<path d="M24 6 L12 36" stroke="#E0668E" stroke-width="1.4" fill="none" opacity="0.6" />
-		<path d="M24 6 L36 36" stroke="#E0668E" stroke-width="1.4" fill="none" opacity="0.6" />
+		<path d="M24 6 L18 38" stroke="#4F8FD0" stroke-width="1.4" fill="none" />
+		<path d="M24 6 L24 38" stroke="#4F8FD0" stroke-width="1.4" fill="none" />
+		<path d="M24 6 L30 38" stroke="#4F8FD0" stroke-width="1.4" fill="none" />
+		<path d="M24 6 L12 36" stroke="#4F8FD0" stroke-width="1.4" fill="none" opacity="0.6" />
+		<path d="M24 6 L36 36" stroke="#4F8FD0" stroke-width="1.4" fill="none" opacity="0.6" />
 	</svg>
 {:else if variant === 'starfish'}
 	<svg
@@ -151,7 +151,7 @@
 		<path
 			d="M10 10 L38 10 L26 26 L26 38 L34 40 L14 40 L22 38 L22 26 Z"
 			fill="#FFCBC1"
-			stroke="#E0668E"
+			stroke="#4F8FD0"
 			stroke-width="2"
 			stroke-linejoin="round"
 		/>
@@ -171,14 +171,14 @@
 	>
 		<path
 			d="M4 24 Q24 4 44 24 Q34 24 24 24 Q14 24 4 24 Z"
-			fill="#FF8FB8"
-			stroke="#E0668E"
+			fill="#7FB8E8"
+			stroke="#4F8FD0"
 			stroke-width="2"
 		/>
-		<path d="M4 24 Q14 18 14 24" fill="#FFCFE0" stroke="#E0668E" stroke-width="1.5" />
-		<path d="M14 24 Q24 16 24 24" fill="#FF8FB8" stroke="#E0668E" stroke-width="1.5" />
-		<path d="M24 24 Q34 16 34 24" fill="#FFCFE0" stroke="#E0668E" stroke-width="1.5" />
-		<path d="M34 24 Q44 18 44 24" fill="#FF8FB8" stroke="#E0668E" stroke-width="1.5" />
+		<path d="M4 24 Q14 18 14 24" fill="#C5E2F7" stroke="#4F8FD0" stroke-width="1.5" />
+		<path d="M14 24 Q24 16 24 24" fill="#7FB8E8" stroke="#4F8FD0" stroke-width="1.5" />
+		<path d="M24 24 Q34 16 34 24" fill="#C5E2F7" stroke="#4F8FD0" stroke-width="1.5" />
+		<path d="M34 24 Q44 18 44 24" fill="#7FB8E8" stroke="#4F8FD0" stroke-width="1.5" />
 		<line x1="24" y1="24" x2="24" y2="42" stroke="#7A5A1F" stroke-width="2.5" stroke-linecap="round" />
 		<path d="M24 42 Q26 44 28 42" stroke="#7A5A1F" stroke-width="2" stroke-linecap="round" fill="none" />
 	</svg>

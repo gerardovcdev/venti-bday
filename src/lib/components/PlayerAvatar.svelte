@@ -32,7 +32,7 @@
 >
 	<div
 		class="absolute inset-0 rounded-full transition {ringActive ? 'animate-heartbeat' : ''}"
-		style="background: {colorBg}; box-shadow: 0 0 0 3px {colorRing ?? colorBg}, 0 4px 10px -2px rgba(224,102,142,0.3);"
+		style="background: {colorBg}; box-shadow: 0 0 0 3px {colorRing ?? colorBg}, 0 4px 10px -2px rgba(79,143,208,0.3);"
 	></div>
 	{#if ringActive}
 		<div

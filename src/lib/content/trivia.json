@@ -1,67 +1,75 @@
 [
 	{
-		"id": "venti-favorite-color",
+		"id": "venti-mind-blown",
 		"about": "venti",
 		"type": "multiple",
-		"question": "¿Cuál es el color favorito de Venti?",
-		"options": ["Rosa", "Lila", "Azul cielo", "Verde menta"],
-		"answer": "Rosa"
+		"question": "¿En que esta pensando venti en este momento?",
+		"options": ["En Caracas", "En la bromas", "En Bebotear", "Todas las anteriores"],
+		"answer": "Todas las anteriores"
 	},
 	{
-		"id": "venti-favorite-snack",
-		"about": "venti",
+		"id": "infidelidad-mujeres",
+		"about": "general",
 		"type": "multiple",
-		"question": "¿Cuál es el snack favorito de Venti?",
-		"options": ["Helado de fresa", "Chocolate", "Galletas Oreo", "Papitas"],
-		"answer": "Helado de fresa"
+		"question": "Entre los hombres y las mujeres, ¿quién es más infiel?",
+		"options": ["Hombres", "Mujeres", "Mi ex", "Mujeres otra vez"],
+		"answer": "Mujeres"
 	},
 	{
-		"id": "venti-favorite-character",
-		"about": "venti",
+		"id": "men-no-lies",
+		"about": "general",
 		"type": "multiple",
-		"question": "¿Cuál personaje de Sanrio le gusta más a Venti?",
-		"options": ["Hello Kitty", "My Melody", "Cinnamoroll", "Pompompurin"],
-		"answer": "My Melody"
+		"question": "¿Los hombres mienten?",
+		"options": ["No", "No otra vez", "Imposible", "Si (pero no todos)"],
+		"answer": "No"
 	},
 	{
-		"id": "venti-dream-trip",
+		"id": "venti-name-for-letters",
 		"about": "venti",
 		"type": "open",
-		"question": "Si Venti pudiera viajar mañana, ¿a qué país iría?",
-		"answer": "Japón",
-		"answer_alts": ["japon", "japan", "tokio", "tokyo"]
+		"question": "Escribe un nombre por la letra M",
+		"answer": "Marcos",
+		"answer_alts": ["Marco", "Manuel", "Manoli", "Manuela", "Mauricio", "Mauro", "Mau", "Mauu","Maria", "María", "Mariela", "Mariel", "Mariluz", "Marisol", "Marina", "Maribel", "Maricela", "Maricarmen", "Maricruz", "Maricela"]
 	},
 	{
-		"id": "venti-fav-drink",
+		"id": "venti-worst-man",
 		"about": "venti",
 		"type": "multiple",
-		"question": "¿Cuál es la bebida favorita de Venti en el mall?",
-		"options": ["Frappé de matcha", "Boba milk tea", "Limonada rosa", "Frappuccino"],
-		"answer": "Boba milk tea"
+		"question": "¿Quién es el peor hombre del mundo para Venti?",
+		"options": ["Omar", "Gerardo", "Hittler", "Westcol"],
+		"answer": "Omar"
 	},
 	{
-		"id": "general-capital-korea",
-		"about": "general",
+		"id": "finish-the-quote",
+		"about": "venti",
 		"type": "multiple",
-		"question": "¿Cuál es la capital de Corea del Sur?",
-		"options": ["Seúl", "Tokio", "Busan", "Beijing"],
-		"answer": "Seúl"
+		"question": "Termina la frase: 'Venti es...'",
+		"options": ["Una mujer de su casa", "Una Bandida", "Una chica tranquila", "Una estudiante ejemplar"],
+		"answer": "Una Bandida"
 	},
 	{
-		"id": "general-sanrio-year",
-		"about": "general",
+		"id": "venti-born-location",
+		"about": "venti",
 		"type": "multiple",
-		"question": "¿En qué año fue creada Hello Kitty?",
-		"options": ["1971", "1974", "1980", "1985"],
-		"answer": "1974"
+		"question": "¿En qué lugar nació Venti?",
+		"options": ["En la sala", "En un cementerio", "En la playa", "En el conuco"],
+		"answer": "En un cementerio"
 	},
 	{
-		"id": "general-kpop-bts",
+		"id": "general-kpop-quote",
 		"about": "general",
 		"type": "open",
-		"question": "¿Cuántos integrantes tiene BTS?",
-		"answer": "7",
-		"answer_alts": ["siete", "seven"]
+		"question": "¿Qué integrante de BTS fue el responsable de la celebre frase 'Te parecen bien 47cm?'?",
+		"answer": "Jungkook",
+		"answer_alts": [
+		"Jung Kook",
+		"Junkook",
+		"Junkok",
+		"Jungkuk",
+		"Jeon Jungkook",
+		"Jeon Jung Kook",
+		"JK"
+		]
 	},
 	{
 		"id": "general-pochaco-species",
@@ -72,12 +80,12 @@
 		"answer": "Perro"
 	},
 	{
-		"id": "general-mymelody-color",
-		"about": "general",
+		"id": "venti-fav-state",
+		"about": "venti",
 		"type": "multiple",
-		"question": "¿De qué color es la capucha de My Melody?",
-		"options": ["Rosa", "Roja", "Blanca", "Lila"],
-		"answer": "Rosa"
+		"question": "¿Cuál es el estado favorito de Venti?",
+		"options": ["Nueva Esparta", "Bolivar", "Delta Amacuro", "Distrito Capital"],
+		"answer": "Distrito Capital"
 	},
 	{
 		"id": "venti-zodiac",
@@ -90,9 +98,9 @@
 	{
 		"id": "venti-fav-song",
 		"about": "venti",
-		"type": "open",
-		"question": "Una palabra de su canción favorita",
-		"answer": "love",
-		"answer_alts": ["amor", "baby", "girl", "honey"]
+		"type": "multiple",
+		"question": "¿Cuál es la canción favorita de Venti actualmente?",
+		"options": ["Dardos", "$uelta gatita $suelta", "De lejitos", "COLMILLO"],
+		"answer": "De lejitos"
 	}
 ]

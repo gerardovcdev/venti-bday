@@ -1,5 +1,5 @@
 export const PLAYER_PALETTE = [
-	{ name: 'rose', bg: '#FFB6D5', fg: '#6B2C4A', ring: '#FF8FB8' },
+	{ name: 'rose', bg: '#A8CFF0', fg: '#1F3A5C', ring: '#7FB8E8' },
 	{ name: 'lilac', bg: '#E8D5FF', fg: '#5B3A7A', ring: '#C9A8F0' },
 	{ name: 'peach', bg: '#FFD9C4', fg: '#7A3E1F', ring: '#FFB893' },
 	{ name: 'mint', bg: '#D4F1E0', fg: '#2F5E45', ring: '#A8DCBE' },

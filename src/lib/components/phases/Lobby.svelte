@@ -105,9 +105,9 @@
 	<header class="text-center">
 		<div class="font-script text-pink-rose/80 text-lg">sala de la fiesta</div>
 		<h1 class="font-display text-4xl text-pink-deep flex items-center justify-center gap-2">
-			<HeartIcon size={26} color="#E0668E" />
+			<HeartIcon size={26} color="#4F8FD0" />
 			Lobby
-			<HeartIcon size={26} color="#E0668E" />
+			<HeartIcon size={26} color="#4F8FD0" />
 		</h1>
 	</header>
 
@@ -153,7 +153,7 @@
 							</div>
 						</div>
 						{#if player.is_ready}
-							<HeartIcon size={20} color="#FF8FB8" />
+							<HeartIcon size={20} color="#7FB8E8" />
 						{/if}
 					</li>
 				{/each}

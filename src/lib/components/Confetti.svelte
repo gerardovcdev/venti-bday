@@ -9,7 +9,7 @@
 		duration = 2400
 	}: { visible?: boolean; count?: number; duration?: number } = $props();
 
-	const palette = ['#FF8FB8', '#FFB6D5', '#E0668E', '#FFC0E2', '#E8D5FF'];
+	const palette = ['#7FB8E8', '#A8CFF0', '#4F8FD0', '#FFC0E2', '#E8D5FF'];
 
 	function piece(i: number) {
 		const left = (i * 97 + 13) % 100;

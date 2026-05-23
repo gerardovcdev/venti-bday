@@ -57,7 +57,7 @@
 				</div>
 			</div>
 			<div class="flex items-center gap-1 text-pink-rose">
-				<HeartIcon size={12} color="#FF8FB8" />
+				<HeartIcon size={12} color="#7FB8E8" />
 				<span class="font-script text-xs">{gameStore.players.length}</span>
 			</div>
 		</div>

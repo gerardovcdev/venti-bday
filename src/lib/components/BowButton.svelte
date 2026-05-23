@@ -51,7 +51,7 @@
 >
 	{#if showBow && variant === 'primary'}
 		<span class="absolute -top-3 -right-2 rotate-12 drop-shadow-md">
-			<BowIcon size={28} color="#FFCFE0" accent="#FF8FB8" />
+			<BowIcon size={28} color="#C5E2F7" accent="#7FB8E8" />
 		</span>
 	{/if}
 	{@render children()}
